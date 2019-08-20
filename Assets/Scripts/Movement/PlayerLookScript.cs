@@ -8,9 +8,10 @@ public class PlayerLookScript : MonoBehaviour
 	public MasterController _moveJoystick;
 	public RotationalAxis _axis = RotationalAxis.lookX;
 	[Header("Sensitivity")]
-	[Range(0, 5)]
-	public float _lookSensitivityX = 10f;
-	public float _lookSensitivityY = 10f;
+	[Range(0,5)]
+	public float _lookSensitivityX = 1f;
+	[Range(0,5)]
+	public float _lookSensitivityY = 1f;
 	[Header("Y Rotaion Clamp")]
 	public float _maxY = 60f;
 	public float _minY = -60f;

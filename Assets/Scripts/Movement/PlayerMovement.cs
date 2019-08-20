@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody))]
+
 public class PlayerMovement : MonoBehaviour
 {
 	[Header("Reference")]
 	public MasterController _moveJoystick;
 	private CharacterController _charC;
-	private Rigidbody _rigid;
+	
 	[Header("Attributes")]
 	private float _currentSpeed;
     public float _movementSpeed = 5f;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
 		_currentSpeed = _movementSpeed;
 		_charC = GetComponent<CharacterController>();
-		_rigid = GetComponent<Rigidbody>();
+		
     }
     private void Update()
 	{
