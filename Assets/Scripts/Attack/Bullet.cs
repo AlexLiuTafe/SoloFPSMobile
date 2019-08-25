@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	public int damage;
+	public float damage = 10f;
 	private void OnTriggerEnter(Collider col)
 	{
 		Enemy enemy = col.GetComponent<Enemy>();
@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 		if(enemy)
 		{
 			Destroy(gameObject);
-			//enemy.TakeDamage(damage);
+			enemy.TakeDamage(damage);
 		}
 		
 			Destroy(gameObject);
