@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
 	[Header("Health")]
 	public float health = 100f;
-
+	public Text healthText;
 
 	
 	private void Start()
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
 	{
+		healthText.text = Mathf.Round(health).ToString();
 		Move(_currentSpeed);
 		_charC.Move(_motion *Time.deltaTime);
     }

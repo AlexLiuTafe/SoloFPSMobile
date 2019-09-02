@@ -7,9 +7,10 @@ public class Door : MonoBehaviour
 	// Start is called before the first frame update
 	Animator anim;
 	SphereCollider col;
-	
+
     void Start()
     {
+		
 		anim = GetComponent<Animator>();
 		col = GetComponent<SphereCollider>();
     }
@@ -22,15 +23,7 @@ public class Door : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		anim.SetTrigger("GateOpen");
+		
 	}
 
-	private void OnTriggerExit(Collider other)
-	{
-		anim.enabled = true;
-		Destroy(col);
-	}
-	void StopGateEvent()
-	{
-		anim.enabled = false;
-	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,9 +21,10 @@ public class Enemy : MonoBehaviour
 	private GameObject _player;
 	private NavMeshAgent _agent;
 	public Transform attackCol;
+	public Text healthText;
 	private void OnDrawGizmos()
 	{
-		
+
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(attackCol.position, attackRadius);
 	}
@@ -35,11 +37,11 @@ public class Enemy : MonoBehaviour
 	private void Update()
 	{
 		float distance = Vector3.Distance(_target.position, transform.position);
+		_agent.SetDestination(_target.position);
 
-		
-			_agent.SetDestination(_target.position);
-		
-		if(distance <=attackRange)
+		healthText.text = Mathf.Round(health).ToString();
+
+		if (distance <= attackRange)
 		{
 			Attack();
 			LookAtTarget();
@@ -50,7 +52,7 @@ public class Enemy : MonoBehaviour
 	{
 		health -= damage;
 		Debug.Log("Enemy Take Damage" + " " + damage);
-		if(health <= 0)
+		if (health <= 0)
 		{
 			Destroy(gameObject);
 		}
@@ -63,9 +65,9 @@ public class Enemy : MonoBehaviour
 		foreach (var hit in hits)
 		{
 			PlayerMovement player = hit.GetComponent<PlayerMovement>();
-			if(player)
+			if (player)
 			{
-				if(Time.time >= _attackTimer)
+				if (Time.time >= _attackTimer)
 				{
 					player.TakeDamage(damage);
 					_attackTimer = Time.time + attackRate;
@@ -73,7 +75,7 @@ public class Enemy : MonoBehaviour
 			}
 
 		}
-		
+
 	}
 	private void LookAtTarget()
 	{
