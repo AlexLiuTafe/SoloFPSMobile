@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	[Header("Reference")]
 	public MasterController _moveJoystick;
 	private CharacterController _charC;
-	private Rigidbody rigid;
+	//private Rigidbody rigid;
 
 	[Header("Attributes")]
 	private float _currentSpeed;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	private void Start()
     {
-		rigid = GetComponent<Rigidbody>();
+		//rigid = GetComponent<Rigidbody>();
 		_currentSpeed = _movementSpeed;
 		_charC = GetComponent<CharacterController>();
 		

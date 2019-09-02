@@ -12,7 +12,7 @@ public class PlayerLookScript : MonoBehaviour
 	public float _lookSensitivityX = 1f;
 	[Range(0,5)]
 	public float _lookSensitivityY = 1f;
-	[Header("Y Rotaion Clamp")]
+	[Header("Y Rotation Clamp")]
 	public float _maxY = 60f;
 	public float _minY = -60f;
 
