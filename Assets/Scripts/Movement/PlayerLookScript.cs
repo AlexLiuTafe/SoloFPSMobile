@@ -17,14 +17,8 @@ public class PlayerLookScript : MonoBehaviour
 	public float _minY = -60f;
 
 	private float _rotationY = 0;
-	// Start is called before the first frame update
-	void Start()
-	{
-		if(GetComponent<Rigidbody>())
-		{
-			GetComponent<Rigidbody>().freezeRotation = true;
-		}
-	}
+	
+	
 
 	// Update is called once per frame
 	void Update()
@@ -40,10 +34,11 @@ public class PlayerLookScript : MonoBehaviour
 			transform.localEulerAngles = new Vector3(-_rotationY, _rotationX, 0);
 
 		}
-		//For looking hHrizontal (rotate Y axis base on horizontal input)
+		//For looking Horizontal (rotate Y axis base on horizontal input)
 		else if (_axis == RotationalAxis.lookX)
 		{
 			transform.Rotate(0, _moveJoystick.Horizontal * _lookSensitivityX,0);
+			
 		}
 		else //For looking Vertical (rotate X axis base on vertical input)
 		{

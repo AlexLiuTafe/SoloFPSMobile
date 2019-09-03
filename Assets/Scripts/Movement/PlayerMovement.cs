@@ -32,25 +32,30 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
 	{
 		healthText.text = Mathf.Round(health).ToString();
-		Move(_currentSpeed);
+		float inputH = _moveJoystick.Horizontal;
+		float inputV = _moveJoystick.Vertical;
+		Vector3 inputDir = new Vector3(inputH, 0f, inputV);
+		inputDir = transform.TransformDirection(inputDir);
+		if(inputDir.magnitude>1f)
+		{
+			inputDir.Normalize();
+		}
+		Move(inputDir.x,inputDir.z,_currentSpeed);
 		_charC.Move(_motion *Time.deltaTime);
+		
     }
 	#region FUNCTION
-	private void Move(float speed)
+	private void Move(float inputH,float inputV,float speed)
     {
-		Vector3 direction = new Vector3(_moveJoystick.Horizontal, 0, _moveJoystick.Vertical);
+		Vector3 direction = new Vector3(inputH, 0, inputV);
 		_motion.x = direction.x * speed;
 		_motion.z = direction.z * speed;
-		if(direction.magnitude >1f)
-		{
-			direction.Normalize();
-		}
-		
+			
 	}
-	public void Dash()
-	{
-		StartCoroutine(DashIE(_dashSpeed, _movementSpeed, _dashTime));
-	}
+	//public void Dash()
+	//{
+	//	StartCoroutine(DashIE(_dashSpeed, _movementSpeed, _dashTime));
+	//}
 	public void TakeDamage(float damage)
 	{
 		health -= damage;
@@ -62,11 +67,11 @@ public class PlayerMovement : MonoBehaviour
 	}
 	#endregion
 	#region IENumerator
-	IEnumerator DashIE(float startDash,float endDash, float delay)
-	{
-		_currentSpeed = startDash;
-		yield return new WaitForSeconds(delay);
-		_currentSpeed = endDash;
-	}
+	//IEnumerator DashIE(float startDash,float endDash, float delay)
+	//{
+	//	_currentSpeed = startDash;
+	//	yield return new WaitForSeconds(delay);
+	//	_currentSpeed = endDash;
+	//}
 	#endregion
 }
