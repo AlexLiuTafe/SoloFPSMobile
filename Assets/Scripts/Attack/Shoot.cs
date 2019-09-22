@@ -27,7 +27,6 @@ public class Shoot : MonoBehaviour
 			Rigidbody rigid = bullet.GetComponent<Rigidbody>();
 			rigid.velocity = Camera.main.transform.forward * bulletSpeed;
 			bullet.transform.SetParent(bulletClone);
-			Destroy(bullet, 0.5f);
 			_shootTimer = Time.time + shootRate;
 		}
 		

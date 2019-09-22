@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
 	[Header("Attributes")]
-	public float health = 70f;
+	public float health;
 
 	[Header("Attacking")]
 	public float damage = 5f;
@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
 	}
 	private void Start()
 	{
+		float randHealth = Random.Range(15f, 30f);
+		health = randHealth;
 		_agent = GetComponent<NavMeshAgent>();
 		_player = GameObject.FindGameObjectWithTag("Player");
 		_target = _player.transform;
