@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   //NOTE* THIS IS JUST TO DESTROY THE "GAME START" text after it is active
 
     // Update is called once per frame
     void Update()

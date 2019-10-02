@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-	// Start is called before the first frame update
+	//NOTE* FOR DOOR ANIMATION
 	Animator anim;
 	SphereCollider col;
 
@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
     }
 	private void OnTriggerEnter(Collider other)
 	{
+		//Set animation when hit the collider
 		anim.SetTrigger("GateOpen");
 		
 	}

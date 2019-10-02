@@ -12,16 +12,18 @@ public class SpawnMaster : MonoBehaviour
 
 	private void Awake()
 	{
+		//get gameobject children position
 		spawnPoints = new Transform[transform.childCount];
 		for (int i = 0; i < spawnPoints.Length; i++)
 		{
+			//loop through all the children
 			spawnPoints[i] = transform.GetChild(i);
 		}
 	}
 	private void Start()
 	{
 		spawnTimer = 7f;
-		spawnParent = GameObject.Find("EnemyClones").GetComponent<Transform>();
+		spawnParent = GameObject.Find("EnemyClones").GetComponent<Transform>();//Find gameobject named EnemyClones and get the transform component
 	}
 	// Update is called once per frame
 	void Update()
@@ -29,12 +31,15 @@ public class SpawnMaster : MonoBehaviour
 		//Time.time always going up 
 		if (Time.time > spawnTimer)
 		{
-			spawnTimer = Time.time + spawnRate;
 			Spawn();
+			//Reset timer
+			spawnTimer = Time.time + spawnRate;
+			
 		}
 	}
 	void Spawn()
 	{
+		//Storing a random value from the spawnpoint length
 		int randomPos = Random.Range(0, spawnPoints.Length);
 		//Storing prefab as a GameObject
 		GameObject clone = Instantiate(enemy, spawnPoints[randomPos].position, Quaternion.identity);
