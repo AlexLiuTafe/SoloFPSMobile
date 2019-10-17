@@ -10,16 +10,12 @@ public class Door : MonoBehaviour
 
     void Start()
     {
-		
+		//Get all the compenents when the its in play mode
 		anim = GetComponent<Animator>();
 		col = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 	private void OnTriggerEnter(Collider other)
 	{
 		//Set animation when hit the collider

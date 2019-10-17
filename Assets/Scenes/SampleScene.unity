@@ -17107,6 +17107,9 @@ GameObject:
   - component: {fileID: 1188211919}
   - component: {fileID: 1188211918}
   - component: {fileID: 1188211920}
+  - component: {fileID: 1188211921}
+  - component: {fileID: 1188211922}
+  - component: {fileID: 1188211923}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -17259,6 +17262,56 @@ MonoBehaviour:
   _lookSensitivityY: 0.7
   _maxY: 60
   _minY: -60
+--- !u!114 &1188211921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188211912}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18af75e3bd94bd14e83559694061c438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: {x: 0, y: 0, z: 0}
+  _charC: {fileID: 1188211919}
+  jumpSpeed: 0
+  speed: 5
+  gravity: 1
+--- !u!54 &1188211922
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188211912}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1188211923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188211912}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366bc577ebb3c0848a03a0f105c81b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: 0
+  sensitivityX: 3
+  sensitivityY: 3
+  maxY: 60
+  minY: -60
 --- !u!1 &1200480960
 GameObject:
   m_ObjectHideFlags: 0

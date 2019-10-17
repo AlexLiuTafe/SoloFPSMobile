@@ -6,7 +6,7 @@ public class Shoot : MonoBehaviour
 {
 	[Header("Attributes")]
 	private float _shootTimer;
-	public float shootRate = 1f;
+	public float shootRate = 0.75f;
 	public float bulletSpeed = 20f;
 	public GameObject bulletPrefab;
 	public Transform bulletClone;	
